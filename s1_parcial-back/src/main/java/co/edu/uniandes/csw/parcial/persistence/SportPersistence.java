@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import co.edu.uniandes.csw.parcial.entities.SportEntity;
+import uk.co.jemos.podam.common.PodamExclude;
 
 /**
  *
@@ -22,6 +23,7 @@ public class SportPersistence {
     
     private static final Logger LOGGER = Logger.getLogger( SportPersistence.class.getName() );
 
+    @PodamExclude
     @PersistenceContext( unitName = "parcialPU" )
     protected EntityManager em;
     

@@ -5,7 +5,10 @@
  */
 package co.edu.uniandes.csw.parcial.entities;
 
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -15,6 +18,9 @@ import javax.persistence.Entity;
 public class SportEntity extends BaseEntity {
     
     private String name;
+    
+    @OneToMany(mappedBy = "sport", fetch = FetchType.LAZY)
+    private List<ProductEntity> products;
     
     public SportEntity() {
     }
@@ -26,4 +32,13 @@ public class SportEntity extends BaseEntity {
     public void setName( String name ) {
         this.name = name;
     }
+
+    public List<ProductEntity> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<ProductEntity> products) {
+        this.products = products;
+    }
+    
 }
